@@ -15,6 +15,13 @@ $ gitbook init
 
 ## 6. book.json
 ### 6.1 BaseUrl
+#### 6.1.1 선언
+#### 6.1.2 접근
+```
+{{ book.RAW_URL }}
+
+![node-version]({{ book.RAW_URL }}/books/gitbook/_res/000_gitbook_version.png)
+```
 ### 6.2 Google Analytics
 
 

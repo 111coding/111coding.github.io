@@ -30,10 +30,10 @@ $ sudo n 10.14.1
 * n x.x.x : 특정 x.x.x 버전
 ```
 
-![node-version](/books/gitbook/_res/000_node_version.png)
+![node-version]({{ book.RAW_URL }}/books/gitbook/_res/000_node_version.png)
 
 이까지 하고 ```gitbook -V```을 입력해 gitbook 버전을 확인해 보자
 
-![node-version](/books/gitbook/_res/000_gitbook_version.png)
+![gitbook-version]({{ book.RAW_URL }}/books/gitbook/_res/000_gitbook_version.png)
 
 위와같이 CLI version과 Gitbook version이 출력된다면 모든설치는 끝!
