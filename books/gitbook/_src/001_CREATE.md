@@ -13,4 +13,9 @@ $ gitbook init
 
 ## 5. 파일 작성
 
+## 6. book.json
+### 6.1 BaseUrl
+### 6.2 Google Analytics
+
+
 
