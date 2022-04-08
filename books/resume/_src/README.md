@@ -36,12 +36,6 @@
 
 <br/>
 
-#### SUMMARY
-<hr style="height:1px;margin:0;padding:0;"/>
-
-- test
-
-
 
 #### 경력
 <hr style="height:1px;margin:0;margin-bottom:20px;padding:0;"/>
@@ -137,13 +131,25 @@
 
 
 #### 보유기술
-<hr style="height:1px;margin:0;padding:0;"/>
-test
+<hr style="height:1px;margin:0;margin-bottom:20px;padding:0;"/>
+
+- Flutter
+- SpringBoot
+- Java
+- Kotlin
+- Android (Java, Kotlin)
+- HTML, CSS, Javascript
+- IOS (SwiftUI, Storyboard)
 
 #### 학력
-<hr style="height:1px;margin:0;padding:0;"/>
-test
+<hr style="height:1px;margin:0;margin-bottom:20px;padding:0;"/>
+
+- 학점은행제 컴퓨터공학 학사학위 취득
+  - 2013.05 ~ 2020.02
 
 #### 자격증
-<hr style="height:1px;margin:0;padding:0;"/>
-test
+<hr style="height:1px;margin:0;margin-bottom:20px;padding:0;"/>
+
+- 정보처리기사  (2019.03)
+- 사무자동화산업기사  (2018.05)
+- 컴퓨터활용능력1급  (2013.10)
