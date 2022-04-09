@@ -1,8 +1,13 @@
 # Gitbook 설치
 
-해당 튜토리얼은 MacOS 기반에서 작성.
+***해당 튜토리얼은 MacOS 기반에서 작성.***
 
+#### 1. NodeJS 설치
 Gitbook은 node.js 기반이기 때문에 ```node```와 ```npm```이 설치되어 있어야 한다. ```npm```은 ```node```설치 시 함께 설치되니 Homebrew 등을 통해서 ```node```를 설치하자.
+
+```
+$ brew install node
+```
 
 설치 후 노드 버전을 확인하면 최신버전(작성일 기준 17.~)이 설치 된 것을 확인할 수 있다.
 ```
@@ -31,6 +36,13 @@ $ sudo n 10.14.1
 ```
 
 ![node-version]({{ book.RAW_URL }}/books/gitbook/_res/000_node_version.png)
+
+#### 2. gitbook-cli 설치
+
+Node 설치 후 gitbook-cli 를 글로벌로 설치해준다!
+```
+$ npm install -g gitbook-cli
+```
 
 이까지 하고 ```gitbook -V```을 입력해 gitbook 버전을 확인해 보자
 
