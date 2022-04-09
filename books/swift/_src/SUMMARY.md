@@ -6,7 +6,7 @@
     - [ARC (Automatic Reference Counting)](1_003.md)
 
 - Swift UI
-    - [프로젝트 구조](000_INSTALL.md)
-    - [UI 기초](001_CREATE.md)
-    - [UI선언 방식](002_RELEASE.md)
-    - [Swift 5.1 Property Wrappers](002_RELEASE.md)
+    - [프로젝트 구조](2_001.md)
+    - [UI 기초](2_002.md)
+    - [UI선언 방식](2_003.md)
+    - [Swift 5.1 Property Wrappers](2_004.md)
