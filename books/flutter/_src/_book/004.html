@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>웹폰트 적용하기 · GitBook</title>
+        <title>ListView DragEndEvent 감지 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,8 +57,8 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="002.html" />
     
+    <link rel="prev" href="003.html" />
     
 
     </head>
@@ -146,7 +146,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.3.1" data-path="001.html">
+        <li class="chapter " data-level="1.3.1" data-path="001.html">
             
                 <a href="001.html">
             
@@ -185,7 +185,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.4" data-path="004.html">
+        <li class="chapter active" data-level="1.3.4" data-path="004.html">
             
                 <a href="004.html">
             
@@ -491,7 +491,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >웹폰트 적용하기</a>
+        <a href="." >ListView DragEndEvent 감지</a>
     </h1>
 </div>
 
@@ -506,23 +506,50 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#xC6F9;&#xD3F0;&#xD2B8;-&#xC801;&#xC6A9;&#xD558;&#xAE30;">&#xC6F9;&#xD3F0;&#xD2B8; &#xC801;&#xC6A9;&#xD558;&#xAE30;</h1>
-<p>Reader &#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158; &#xD504;&#xB85C;&#xC81D;&#xD2B8;&#xB97C; &#xC9C4;&#xD589;&#xD558;&#xB358; &#xC911; &#xBDF0;&#xC5B4; &#xC124;&#xC815;&#xC5D0;&#xC11C; &#xD3F0;&#xD2B8;&#xB97C; &#xBC14;&#xAFB8;&#xB294; &#xAE30;&#xB2A5;&#xC774; &#xB4E4;&#xC5B4;&#xAC00;&#xAC8C; &#xB41C; &#xC801;&#xC774; &#xC788;&#xC5C8;&#xB2E4;. &#xD3C9;&#xC18C; &#xD3F0;&#xD2B8;&#xB97C; &#xC0AC;&#xC6A9;&#xD560; &#xB54C; &#xB2F9;&#xC5F0;&#xD558;&#xAC8C; &#xD504;&#xB85C;&#xC81D;&#xD2B8; &#xB0B4;&#xC5D0; ttf&#xB098; otf&#xD30C;&#xC77C;&#xC744; &#xD3EC;&#xD568;&#xC2DC;&#xD0A8; &#xB4A4; pubspec.yaml&#xC5D0; &#xC120;&#xC5B8; &#xD558;&#xACE0; &#xC0AC;&#xC6A9;&#xC744; &#xD558;&#xC5EC;&#xC11C; &#xC678;&#xBD80; &#xD3F0;&#xD2B8; &#xD30C;&#xC77C;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xB294;&#xAC83;&#xC740; &#xC0DD;&#xAC01;&#xB3C4; &#xC548;&#xD574;&#xBCF8; &#xD130;&#xB77C; &#xC21C;&#xAC04; &#xB2F9;&#xD669;&#xD55C; &#xAE30;&#xC5B5;&#xC774; &#xC788;&#xB2E4;. &#xC544;&#xB798;&#xB294; &#xC608;&#xC81C;!</p>
-<pre><code class="lang-dart">  <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> addFont(<span class="hljs-built_in">String</span> path, <span class="hljs-built_in">String</span> fontName) {
-    http.<span class="hljs-keyword">get</span>(<span class="hljs-built_in">Uri</span>.parse(path)).then((value) {
-      addFontByByte(
-          fontName: fontName,
-          bytes: Future.value(value.bodyBytes.buffer.asByteData()));
-    });
-  }
-
-  <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> addFontByByte(
-      {required <span class="hljs-built_in">String</span> fontName, required Future&lt;ByteData&gt; bytes}) {
-    FontLoader(fontName).addFont(bytes);
-  }
+                                <h1 id="listview-dragendevent-&#xAC10;&#xC9C0;">ListView DragEndEvent &#xAC10;&#xC9C0;</h1>
+<h4 id="notificationlistener-&#xC774;&#xC6A9;">NotificationListener &#xC774;&#xC6A9;</h4>
+<ul>
+<li>&#xC774;&#xACBD;&#xC6B0;&#xB294; &#xB2A6;&#xAC8C; &#xAC10;&#xC9C0;.. &#xC2A4;&#xD0C0;&#xD2B8;&#xB791; &#xC5C5;&#xB370;&#xC774;&#xD2B8;&#xB294; &#xC989;&#xAC01; &#xBC18;&#xC751;!<pre><code class="lang-dart"><span class="hljs-meta">@override</span>
+Widget build(BuildContext context) {
+  <span class="hljs-keyword">return</span> Scaffold(
+    body: NotificationListener(
+      onNotification: (notification) {
+        <span class="hljs-keyword">if</span> (notification <span class="hljs-keyword">is</span> ScrollUpdateNotification) {
+          <span class="hljs-built_in">print</span>(<span class="hljs-string">&apos;<span class="hljs-subst">${notification.dragDetails}</span>&apos;</span>);
+        }
+      },
+      child: ListView.builder(
+        itemCount: <span class="hljs-number">20</span>,
+        itemBuilder: (context, index) {
+          <span class="hljs-keyword">return</span> ListTile(
+            title: Text(<span class="hljs-string">&apos;Index = $index&apos;</span>),
+          );
+        },
+      ),
+    ),
+  );
+}
 </code></pre>
-<h4 id="&#xAD50;&#xD6C8;">&#xAD50;&#xD6C8;</h4>
-<h5 id="&#xD56D;&#xC0C1;-&#xB2F9;&#xC5F0;&#xD558;&#xAC8C;-&#xC0DD;&#xAC01;&#xD558;&#xB294;-&#xAC83;&#xB4E4;&#xC744;-&#xD56D;&#xC0C1;-&#xB04A;&#xC784;&#xC5C6;&#xC774;-&#xC758;&#xC2EC;&#xD558;&#xC790;-&#xC608;&#xC678;&#xC758;-&#xC0C1;&#xD669;&#xC740;-&#xD56D;&#xC0C1;-&#xC788;&#xB2E4;">&#xD56D;&#xC0C1; &#xB2F9;&#xC5F0;&#xD558;&#xAC8C; &#xC0DD;&#xAC01;&#xD558;&#xB294; &#xAC83;&#xB4E4;&#xC744; &#xD56D;&#xC0C1; &#xB04A;&#xC784;&#xC5C6;&#xC774; &#xC758;&#xC2EC;&#xD558;&#xC790;! &#xC608;&#xC678;&#xC758; &#xC0C1;&#xD669;&#xC740; &#xD56D;&#xC0C1; &#xC788;&#xB2E4;!</h5>
+</li>
+</ul>
+<h4 id="listener-&#xC774;&#xC6A9;">Listener &#xC774;&#xC6A9;</h4>
+<ul>
+<li>&#xC190;&#xAC00;&#xB77D; pointerUp &#xC774;&#xBCA4;&#xD2B8;&#xB77C;&#xC11C; &#xC989;&#xAC01; &#xBC18;&#xC751;!<pre><code class="lang-dart">  Listener(
+    onPointerUp: (event) {
+      <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;End&quot;</span>);
+    },
+    child: ListView(
+      physics: BouncingScrollPhysics(
+          parent: AlwaysScrollableScrollPhysics()),
+      children: <span class="hljs-built_in">List</span>.generate(
+        <span class="hljs-number">100</span>,
+        (index) =&gt; Text(<span class="hljs-string">&quot;$index&quot;</span>),
+      ),
+    ),
+  ),
+</code></pre>
+</li>
+</ul>
 
                                 
                                 </section>
@@ -550,10 +577,10 @@
 
             
                 
-                
-                <a href="002.html" class="navigation navigation-next navigation-unique" aria-label="Next page: HEXSTRING TO COLOR">
-                    <i class="fa fa-angle-right"></i>
+                <a href="003.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 탭 변경시 상태 그대로(KeepAlive)">
+                    <i class="fa fa-angle-left"></i>
                 </a>
+                
                 
             
         
@@ -562,7 +589,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"웹폰트 적용하기","level":"1.3.1","depth":2,"next":{"title":"HEXSTRING TO COLOR","level":"1.3.2","depth":2,"path":"002.md","ref":"002.md","articles":[]},"previous":{"title":"Flutter 개발 일지","level":"1.3","depth":1,"ref":"","articles":[{"title":"웹폰트 적용하기","level":"1.3.1","depth":2,"path":"001.md","ref":"001.md","articles":[]},{"title":"HEXSTRING TO COLOR","level":"1.3.2","depth":2,"path":"002.md","ref":"002.md","articles":[]},{"title":"탭 변경시 상태 그대로(KeepAlive)","level":"1.3.3","depth":2,"path":"003.md","ref":"003.md","articles":[]},{"title":"ListView DragEndEvent 감지","level":"1.3.4","depth":2,"path":"004.md","ref":"004.md","articles":[]},{"title":"JSESSIONID 가져오기","level":"1.3.5","depth":2,"url":"https://github.com/111coding/flutter_session_utils/blob/main/session_utils.dart","ref":"https://github.com/111coding/flutter_session_utils/blob/main/session_utils.dart","articles":[]},{"title":"랜더링된 위젯 위치, 크기 가져오기","level":"1.3.6","depth":2,"url":"https://github.com/111coding/flutter_overlay_tooltip/blob/master/lib/render_util.dart","ref":"https://github.com/111coding/flutter_overlay_tooltip/blob/master/lib/render_util.dart","articles":[]},{"title":"스크롤바 숨기기","level":"1.3.7","depth":2,"url":"https://github.com/111coding/flutter_scrollbar_hide_code","ref":"https://github.com/111coding/flutter_scrollbar_hide_code","articles":[]},{"title":"MouseOver 감지","level":"1.3.8","depth":2,"url":"https://github.com/111coding/flutter_hover_button/blob/main/svg_button.dart","ref":"https://github.com/111coding/flutter_hover_button/blob/main/svg_button.dart","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"https://111coding.github.io","RAW_URL":"https://raw.githubusercontent.com/111coding/111coding.github.io/master"},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"001.md","mtime":"2022-04-09T19:20:02.672Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-04-09T20:20:45.202Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ListView DragEndEvent 감지","level":"1.3.4","depth":2,"next":{"title":"JSESSIONID 가져오기","level":"1.3.5","depth":2,"url":"https://github.com/111coding/flutter_session_utils/blob/main/session_utils.dart","ref":"https://github.com/111coding/flutter_session_utils/blob/main/session_utils.dart","articles":[]},"previous":{"title":"탭 변경시 상태 그대로(KeepAlive)","level":"1.3.3","depth":2,"path":"003.md","ref":"003.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"https://111coding.github.io","RAW_URL":"https://raw.githubusercontent.com/111coding/111coding.github.io/master"},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"004.md","mtime":"2022-04-09T20:08:24.697Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-04-09T20:20:45.202Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

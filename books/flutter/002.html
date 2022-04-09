@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>웹폰트 적용하기 · GitBook</title>
+        <title>HEXSTRING TO COLOR · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,8 +57,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="002.html" />
+    <link rel="next" href="003.html" />
     
+    
+    <link rel="prev" href="001.html" />
     
 
     </head>
@@ -146,7 +148,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.3.1" data-path="001.html">
+        <li class="chapter " data-level="1.3.1" data-path="001.html">
             
                 <a href="001.html">
             
@@ -159,7 +161,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="002.html">
+        <li class="chapter active" data-level="1.3.2" data-path="002.html">
             
                 <a href="002.html">
             
@@ -491,7 +493,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >웹폰트 적용하기</a>
+        <a href="." >HEXSTRING TO COLOR</a>
     </h1>
 </div>
 
@@ -506,23 +508,18 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#xC6F9;&#xD3F0;&#xD2B8;-&#xC801;&#xC6A9;&#xD558;&#xAE30;">&#xC6F9;&#xD3F0;&#xD2B8; &#xC801;&#xC6A9;&#xD558;&#xAE30;</h1>
-<p>Reader &#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158; &#xD504;&#xB85C;&#xC81D;&#xD2B8;&#xB97C; &#xC9C4;&#xD589;&#xD558;&#xB358; &#xC911; &#xBDF0;&#xC5B4; &#xC124;&#xC815;&#xC5D0;&#xC11C; &#xD3F0;&#xD2B8;&#xB97C; &#xBC14;&#xAFB8;&#xB294; &#xAE30;&#xB2A5;&#xC774; &#xB4E4;&#xC5B4;&#xAC00;&#xAC8C; &#xB41C; &#xC801;&#xC774; &#xC788;&#xC5C8;&#xB2E4;. &#xD3C9;&#xC18C; &#xD3F0;&#xD2B8;&#xB97C; &#xC0AC;&#xC6A9;&#xD560; &#xB54C; &#xB2F9;&#xC5F0;&#xD558;&#xAC8C; &#xD504;&#xB85C;&#xC81D;&#xD2B8; &#xB0B4;&#xC5D0; ttf&#xB098; otf&#xD30C;&#xC77C;&#xC744; &#xD3EC;&#xD568;&#xC2DC;&#xD0A8; &#xB4A4; pubspec.yaml&#xC5D0; &#xC120;&#xC5B8; &#xD558;&#xACE0; &#xC0AC;&#xC6A9;&#xC744; &#xD558;&#xC5EC;&#xC11C; &#xC678;&#xBD80; &#xD3F0;&#xD2B8; &#xD30C;&#xC77C;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xB294;&#xAC83;&#xC740; &#xC0DD;&#xAC01;&#xB3C4; &#xC548;&#xD574;&#xBCF8; &#xD130;&#xB77C; &#xC21C;&#xAC04; &#xB2F9;&#xD669;&#xD55C; &#xAE30;&#xC5B5;&#xC774; &#xC788;&#xB2E4;. &#xC544;&#xB798;&#xB294; &#xC608;&#xC81C;!</p>
-<pre><code class="lang-dart">  <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> addFont(<span class="hljs-built_in">String</span> path, <span class="hljs-built_in">String</span> fontName) {
-    http.<span class="hljs-keyword">get</span>(<span class="hljs-built_in">Uri</span>.parse(path)).then((value) {
-      addFontByByte(
-          fontName: fontName,
-          bytes: Future.value(value.bodyBytes.buffer.asByteData()));
-    });
-  }
-
-  <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> addFontByByte(
-      {required <span class="hljs-built_in">String</span> fontName, required Future&lt;ByteData&gt; bytes}) {
-    FontLoader(fontName).addFont(bytes);
+                                <h1 id="hexstring-to-color">HEXSTRING TO COLOR</h1>
+<p>Reader &#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158; &#xD504;&#xB85C;&#xC81D;&#xD2B8;&#xB97C; &#xC9C4;&#xD589;&#xD558;&#xB358; &#xC911; &#xAD6C;&#xD604;. &#xBDF0;&#xC5B4; &#xC124;&#xC815;&#xC5D0;&#xC11C; &#xD3F0;&#xD2B8; &#xBC0F; &#xBC30;&#xACBD; &#xC0C9;&#xC0C1;&#xC744; &#xBC14;&#xAFB8;&#xB294;&#xB370; &#xADF8; &#xC0C9;&#xC0C1;&#xC744; &#xC11C;&#xBC84;&#xC5D0;&#xC11C; &#xBC1B;&#xC544;&#xC624;&#xBA74;&#xC11C; &#xAD6C;&#xD604;&#xD558;&#xAC8C;&#xB428;.</p>
+<h4 id="string---color">String -&gt; Color</h4>
+<pre><code class="lang-dart">  <span class="hljs-keyword">static</span> Color hexStringToColor(<span class="hljs-built_in">String</span> str) {
+    <span class="hljs-keyword">return</span> Color(<span class="hljs-built_in">int</span>.parse(str.replaceAll(<span class="hljs-built_in">RegExp</span>(<span class="hljs-string">&quot;#&quot;</span>), <span class="hljs-string">&quot;&quot;</span>), radix: <span class="hljs-number">16</span>) + <span class="hljs-number">0xFF000000</span>);
   }
 </code></pre>
-<h4 id="&#xAD50;&#xD6C8;">&#xAD50;&#xD6C8;</h4>
-<h5 id="&#xD56D;&#xC0C1;-&#xB2F9;&#xC5F0;&#xD558;&#xAC8C;-&#xC0DD;&#xAC01;&#xD558;&#xB294;-&#xAC83;&#xB4E4;&#xC744;-&#xD56D;&#xC0C1;-&#xB04A;&#xC784;&#xC5C6;&#xC774;-&#xC758;&#xC2EC;&#xD558;&#xC790;-&#xC608;&#xC678;&#xC758;-&#xC0C1;&#xD669;&#xC740;-&#xD56D;&#xC0C1;-&#xC788;&#xB2E4;">&#xD56D;&#xC0C1; &#xB2F9;&#xC5F0;&#xD558;&#xAC8C; &#xC0DD;&#xAC01;&#xD558;&#xB294; &#xAC83;&#xB4E4;&#xC744; &#xD56D;&#xC0C1; &#xB04A;&#xC784;&#xC5C6;&#xC774; &#xC758;&#xC2EC;&#xD558;&#xC790;! &#xC608;&#xC678;&#xC758; &#xC0C1;&#xD669;&#xC740; &#xD56D;&#xC0C1; &#xC788;&#xB2E4;!</h5>
+<h4 id="color---string">Color -&gt; String</h4>
+<pre><code class="lang-dart">  <span class="hljs-keyword">static</span> <span class="hljs-built_in">String</span> colorToString(Color color) {
+    <span class="hljs-keyword">return</span> color.value.toRadixString(<span class="hljs-number">16</span>);
+  }
+</code></pre>
 
                                 
                                 </section>
@@ -550,8 +547,12 @@
 
             
                 
+                <a href="001.html" class="navigation navigation-prev " aria-label="Previous page: 웹폰트 적용하기">
+                    <i class="fa fa-angle-left"></i>
+                </a>
                 
-                <a href="002.html" class="navigation navigation-next navigation-unique" aria-label="Next page: HEXSTRING TO COLOR">
+                
+                <a href="003.html" class="navigation navigation-next " aria-label="Next page: 탭 변경시 상태 그대로(KeepAlive)">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -562,7 +563,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"웹폰트 적용하기","level":"1.3.1","depth":2,"next":{"title":"HEXSTRING TO COLOR","level":"1.3.2","depth":2,"path":"002.md","ref":"002.md","articles":[]},"previous":{"title":"Flutter 개발 일지","level":"1.3","depth":1,"ref":"","articles":[{"title":"웹폰트 적용하기","level":"1.3.1","depth":2,"path":"001.md","ref":"001.md","articles":[]},{"title":"HEXSTRING TO COLOR","level":"1.3.2","depth":2,"path":"002.md","ref":"002.md","articles":[]},{"title":"탭 변경시 상태 그대로(KeepAlive)","level":"1.3.3","depth":2,"path":"003.md","ref":"003.md","articles":[]},{"title":"ListView DragEndEvent 감지","level":"1.3.4","depth":2,"path":"004.md","ref":"004.md","articles":[]},{"title":"JSESSIONID 가져오기","level":"1.3.5","depth":2,"url":"https://github.com/111coding/flutter_session_utils/blob/main/session_utils.dart","ref":"https://github.com/111coding/flutter_session_utils/blob/main/session_utils.dart","articles":[]},{"title":"랜더링된 위젯 위치, 크기 가져오기","level":"1.3.6","depth":2,"url":"https://github.com/111coding/flutter_overlay_tooltip/blob/master/lib/render_util.dart","ref":"https://github.com/111coding/flutter_overlay_tooltip/blob/master/lib/render_util.dart","articles":[]},{"title":"스크롤바 숨기기","level":"1.3.7","depth":2,"url":"https://github.com/111coding/flutter_scrollbar_hide_code","ref":"https://github.com/111coding/flutter_scrollbar_hide_code","articles":[]},{"title":"MouseOver 감지","level":"1.3.8","depth":2,"url":"https://github.com/111coding/flutter_hover_button/blob/main/svg_button.dart","ref":"https://github.com/111coding/flutter_hover_button/blob/main/svg_button.dart","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"https://111coding.github.io","RAW_URL":"https://raw.githubusercontent.com/111coding/111coding.github.io/master"},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"001.md","mtime":"2022-04-09T19:20:02.672Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-04-09T20:20:45.202Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"HEXSTRING TO COLOR","level":"1.3.2","depth":2,"next":{"title":"탭 변경시 상태 그대로(KeepAlive)","level":"1.3.3","depth":2,"path":"003.md","ref":"003.md","articles":[]},"previous":{"title":"웹폰트 적용하기","level":"1.3.1","depth":2,"path":"001.md","ref":"001.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"https://111coding.github.io","RAW_URL":"https://raw.githubusercontent.com/111coding/111coding.github.io/master"},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"002.md","mtime":"2022-04-09T20:03:32.306Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-04-09T20:20:45.202Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
