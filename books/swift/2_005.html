@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>프로젝트 구조 · GitBook</title>
+        <title>Life Cycle · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,8 +57,8 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="2_002.html" />
     
+    <link rel="prev" href="2_004.html" />
     
 
     </head>
@@ -172,7 +172,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.3.1" data-path="2_001.html">
+        <li class="chapter " data-level="1.3.1" data-path="2_001.html">
             
                 <a href="2_001.html">
             
@@ -224,7 +224,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.5" data-path="2_005.html">
+        <li class="chapter active" data-level="1.3.5" data-path="2_005.html">
             
                 <a href="2_005.html">
             
@@ -272,7 +272,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >프로젝트 구조</a>
+        <a href="." >Life Cycle</a>
     </h1>
 </div>
 
@@ -287,68 +287,43 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#xD504;&#xB85C;&#xC81D;&#xD2B8;-&#xAD6C;&#xC870;">&#xD504;&#xB85C;&#xC81D;&#xD2B8; &#xAD6C;&#xC870;</h1>
-<h5 id="swiftuistudy-&#xB77C;&#xB294;-&#xC774;&#xB984;&#xC73C;&#xB85C;-&#xD504;&#xB85C;&#xC81D;&#xD2B8;-&#xC0DD;&#xC131;&#xD55C;-&#xD6C4;-&#xD504;&#xB85C;&#xC81D;&#xD2B8;-&#xAD6C;&#xC870;">SwiftUiStudy &#xB77C;&#xB294; &#xC774;&#xB984;&#xC73C;&#xB85C; &#xD504;&#xB85C;&#xC81D;&#xD2B8; &#xC0DD;&#xC131;&#xD55C; &#xD6C4; &#xD504;&#xB85C;&#xC81D;&#xD2B8; &#xAD6C;&#xC870;</h5>
-<p><img src="https://raw.githubusercontent.com/111coding/111coding.github.io/master/books/swift/_res/base_project_struct.png" alt="project"></p>
-<ul>
-<li><p><strong>SwiftUiStudyApp.swift</strong></p>
-<ul>
-<li>@main : &#xC774; &#xC571;&#xC758; EntryPoint(&#xC9C4;&#xC785;&#xC810;)</li>
-<li>App   : App protocol&#xC744; &#xC900;&#xC218;</li>
-<li><p>body  : &#xCCAB;&#xD398;&#xC774;&#xC9C0;</p>
+                                <h1 id="life-cycle">Life Cycle</h1>
 <pre><code class="lang-swift"><span class="hljs-keyword">import</span> SwiftUI
 
 @main
-<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">SwiftUiStudyApp</span>: <span class="hljs-title">App</span> </span>{
-  <span class="hljs-keyword">var</span> body: some <span class="hljs-type">Scene</span> {
-      <span class="hljs-type">WindowGroup</span> {
-          <span class="hljs-type">ContentView</span>()
-      }
-  }
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ApplinkTextApp</span>: <span class="hljs-title">App</span> </span>{
+
+    @<span class="hljs-type">Environment</span>(\.scenePhase) <span class="hljs-keyword">var</span> scenePhase
+
+    <span class="hljs-keyword">init</span>(){
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;App Initialize&quot;</span>)
+    }
+
+    <span class="hljs-keyword">var</span> body: some <span class="hljs-type">Scene</span> {
+
+        <span class="hljs-type">WindowGroup</span> {
+            <span class="hljs-type">ContentView</span>()
+                .onOpenURL{ url <span class="hljs-keyword">in</span>
+                    <span class="hljs-comment">// Opened from Scheme</span>
+                    <span class="hljs-built_in">print</span>(url)
+                }
+        }.onChange(of: scenePhase) { newScenePhase <span class="hljs-keyword">in</span>
+            <span class="hljs-keyword">switch</span> newScenePhase {
+            <span class="hljs-keyword">case</span> .active:
+              <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;App is active&quot;</span>)
+            <span class="hljs-keyword">case</span> .inactive:
+              <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;App is inactive&quot;</span>)
+            <span class="hljs-keyword">case</span> .background:
+              <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;App is in background&quot;</span>)
+            @unknown <span class="hljs-keyword">default</span>:
+              <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Oh - interesting: I received an unexpected new value.&quot;</span>)
+            }
+        }
+
+
+    }
 }
 </code></pre>
-</li>
-</ul>
-</li>
-<li><p><strong>ContentView.swift</strong></p>
-<ul>
-<li>SwiftUI&#xB85C; &#xD654;&#xBA74;&#xC744; &#xAC1C;&#xBC1C;&#xD558;&#xB294; &#xD30C;&#xC77C;</li>
-<li>Storyboard&#xB85C; &#xAC1C;&#xBC1C;&#xD558;&#xBA74; storyboard, ViewController&#xD30C;&#xC77C;&#xC774; &#xD544;&#xC218;&#xB85C; &#xD544;&#xC694;&#xD588;&#xC9C0;&#xB9CC; SwiftUI&#xB294; View &#xD30C;&#xC77C;&#xC5D0;&#xC11C; <strong>&#xC120;&#xC5B8;&#xD615;</strong>&#xC73C;&#xB85C; &#xAC1C;&#xBC1C;</li>
-<li><p><strong>ContentView_Previews</strong> : Xcode&#xC5D0;&#xC11C; &#xBDF0; &#xBBF8;&#xB9AC;&#xBCF4;&#xAE30;&#xB97C; &#xC81C;&#xACF5;&#xD558;&#xB294; &#xD0C0;&#xC785; &#xD504;&#xB85C;&#xD1A0;&#xCF5C; &#xC0C1;&#xC18D;&#xBC1B;&#xC740; &#xAD6C;&#xC870;&#xCCB4; (Xcode11 &#xBC84;&#xC804;&#xBD80;&#xD130; Xcode&#xC5D0;&#xC11C; Canvas &#xAE30;&#xB2A5;&#xC744; &#xD1B5;&#xD574; &#xBBF8;&#xB9AC;&#xBCF4;&#xAE30;)</p>
-<ul>
-<li>Interface vs Protocol<ul>
-<li>&#xAE30;&#xB2A5; &#xAD6C;&#xD604; : Interface &#xD544;&#xC218; Protocol &#xC120;&#xD0DD;&#xC801;&#xAC00;&#xB2A5;(optional)</li>
-<li>&#xAE30;&#xBCF8;&#xAC12; &#xC124;&#xC815; : Interface O Protocol X</li>
-</ul>
-</li>
-</ul>
-<pre><code class="lang-swift"><span class="hljs-keyword">import</span> SwiftUI
-
-<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView</span>: <span class="hljs-title">View</span> </span>{
-  <span class="hljs-keyword">var</span> body: some <span class="hljs-type">View</span> {
-      <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Hello, world!&quot;</span>)
-          .padding()
-  }
-}
-
-<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ContentView_Previews</span>: <span class="hljs-title">PreviewProvider</span> </span>{
-  <span class="hljs-keyword">static</span> <span class="hljs-keyword">var</span> previews: some <span class="hljs-type">View</span> {
-      <span class="hljs-type">ContentView</span>()
-  }
-}
-</code></pre>
-</li>
-</ul>
-</li>
-<li><strong>Assets</strong></li>
-<li><p><strong>Preview Content</strong></p>
-<ul>
-<li>&#xBBF8;&#xB9AC;&#xBCF4;&#xAE30;&#xC5D0; &#xC0AC;&#xC6A9;&#xB420; Assets</li>
-</ul>
-</li>
-<li><p>&#xC571; &#xD0C0;&#xAC9F;&#xC744; &#xBA40;&#xD2F0; &#xD50C;&#xB7AB;&#xD3FC;&#xC73C;&#xB85C; &#xD560; &#xC2DC; <strong>SceneDelegate.swift</strong>&#xD30C;&#xC77C;&#xC774; &#xC0DD;&#xC131;&#xB418;&#xB294;&#xB370; iPadOS&#xC758; &#xBA40;&#xD2F0; &#xC708;&#xB3C4;&#xC640; &#xAC19;&#xC740; &#xAE30;&#xB2A5;&#xC744; &#xC9C0;&#xC6D0;&#xD558;&#xAE30; &#xC704;&#xD55C; Delegate.</p>
-</li>
-</ul>
 
                                 
                                 </section>
@@ -376,10 +351,10 @@
 
             
                 
-                
-                <a href="2_002.html" class="navigation navigation-next navigation-unique" aria-label="Next page: UI 기초">
-                    <i class="fa fa-angle-right"></i>
+                <a href="2_004.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Swift 5.1 Property Wrappers">
+                    <i class="fa fa-angle-left"></i>
                 </a>
+                
                 
             
         
@@ -388,7 +363,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"프로젝트 구조","level":"1.3.1","depth":2,"next":{"title":"UI 기초","level":"1.3.2","depth":2,"path":"2_002.md","ref":"2_002.md","articles":[]},"previous":{"title":"Swift UI","level":"1.3","depth":1,"ref":"","articles":[{"title":"프로젝트 구조","level":"1.3.1","depth":2,"path":"2_001.md","ref":"2_001.md","articles":[]},{"title":"UI 기초","level":"1.3.2","depth":2,"path":"2_002.md","ref":"2_002.md","articles":[]},{"title":"UI선언 방식","level":"1.3.3","depth":2,"path":"2_003.md","ref":"2_003.md","articles":[]},{"title":"Swift 5.1 Property Wrappers","level":"1.3.4","depth":2,"path":"2_004.md","ref":"2_004.md","articles":[]},{"title":"Life Cycle","level":"1.3.5","depth":2,"path":"2_005.md","ref":"2_005.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"https://111coding.github.io","RAW_URL":"https://raw.githubusercontent.com/111coding/111coding.github.io/master"},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"2_001.md","mtime":"2022-04-09T18:22:00.338Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-04-09T18:33:31.940Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Life Cycle","level":"1.3.5","depth":2,"previous":{"title":"Swift 5.1 Property Wrappers","level":"1.3.4","depth":2,"path":"2_004.md","ref":"2_004.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"https://111coding.github.io","RAW_URL":"https://raw.githubusercontent.com/111coding/111coding.github.io/master"},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"2_005.md","mtime":"2022-04-09T18:33:24.231Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-04-09T18:33:31.940Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
