@@ -1,0 +1,458 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>ARC (Automatic Reference Counting) · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="1_002.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    Swift 기본
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="1_001.html">
+            
+                <a href="1_001.html">
+            
+                    
+                    언어 특징
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="1_002.html">
+            
+                <a href="1_002.html">
+            
+                    
+                    기초 문법
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.3" data-path="1_003.html">
+            
+                <a href="1_003.html">
+            
+                    
+                    ARC (Automatic Reference Counting)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    Swift UI
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="000_INSTALL.md">
+            
+                <span>
+            
+                    
+                    프로젝트 구조
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="001_CREATE.md">
+            
+                <span>
+            
+                    
+                    UI 기초
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="002_RELEASE.md">
+            
+                <span>
+            
+                    
+                    UI선언 방식
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="002_RELEASE.md">
+            
+                <span>
+            
+                    
+                    Swift 5.1 Property Wrappers
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >ARC (Automatic Reference Counting)</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="arc-automatic-reference-counting">ARC (Automatic Reference Counting)</h1>
+<h4 id="1-arc&#xB780;">1. ARC&#xB780;?</h4>
+<ul>
+<li><h5 id="reference&#xC758;-&#xC22B;&#xC790;&#xB97C;-&#xC790;&#xB3D9;&#xC73C;&#xB85C;-&#xC138;&#xB294;-&#xBA54;&#xBAA8;&#xB9AC;-&#xAD00;&#xB9AC;&#xC790;">Reference&#xC758; &#xC22B;&#xC790;&#xB97C; &#xC790;&#xB3D9;&#xC73C;&#xB85C; &#xC138;&#xB294; &#xBA54;&#xBAA8;&#xB9AC; &#xAD00;&#xB9AC;&#xC790;</h5>
+</li>
+<li><h5 id="reference&#xB97C;-&#xC800;&#xC7A5;&#xD558;&#xB294;-&#xAC1D;&#xCCB4;heap&#xC5D0;-&#xC800;&#xC7A5;&#xB418;&#xB294;-&#xAC1D;&#xCCB4;&#xB9CC;-arc&#xC758;-&#xC601;&#xD5A5;">Reference&#xB97C; &#xC800;&#xC7A5;&#xD558;&#xB294; &#xAC1D;&#xCCB4;(Heap&#xC5D0; &#xC800;&#xC7A5;&#xB418;&#xB294; &#xAC1D;&#xCCB4;)&#xB9CC; ARC&#xC758; &#xC601;&#xD5A5;</h5>
+</li>
+<li><h5 id="strong-reference-count&#xAC00;-0&#xC774;&#xB41C;-&#xAC83;&#xC744;-arc&#xAC00;-&#xBA54;&#xBAA8;&#xB9AC;&#xC5D0;&#xC11C;-&#xD574;&#xC81C;">Strong Reference Count&#xAC00; 0&#xC774;&#xB41C; &#xAC83;&#xC744; ARC&#xAC00; &#xBA54;&#xBAA8;&#xB9AC;&#xC5D0;&#xC11C; &#xD574;&#xC81C;</h5>
+<ul>
+<li>weak   : &#xAC1D;&#xCCB4;&#xB97C; &#xCC38;&#xC870;&#xB294; &#xD558;&#xC9C0;&#xB9CC;, Reference count &#xB97C; &#xC99D;&#xAC00;&#xC2DC;&#xD0A4;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;.</li>
+<li>strong : &#xAC1D;&#xCCB4;&#xB97C; &#xCC38;&#xC870;&#xD558;&#xBA70;, Reference count &#xB97C; &#xC99D;&#xAC00;&#xC2DC;&#xD0A8;&#xB2E4;.</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-arc-&#xC791;&#xB3D9;&#xC6D0;&#xB9AC;">2. ARC &#xC791;&#xB3D9;&#xC6D0;&#xB9AC;</h4>
+<ul>
+<li><h5 id="&#xD074;&#xB798;&#xC2A4;&#xC758;-&#xC0C8;&#xB85C;&#xC6B4;-&#xC778;&#xC2A4;&#xD134;&#xC2A4;&#xB97C;-&#xC0DD;&#xC131;&#xD560;-&#xB54C;-&#xB9C8;&#xB2E4;-arc&#xB294;-&#xC778;&#xC2A4;&#xD134;&#xC2A4;&#xC758;-&#xC815;&#xBCF4;&#xB97C;-&#xC800;&#xC7A5;&#xD558;&#xAE30;-&#xC704;&#xD574;&#xC11C;-&#xBA54;&#xBAA8;&#xB9AC;&#xB97C;-&#xD560;&#xB2F9;">&#xD074;&#xB798;&#xC2A4;&#xC758; &#xC0C8;&#xB85C;&#xC6B4; &#xC778;&#xC2A4;&#xD134;&#xC2A4;&#xB97C; &#xC0DD;&#xC131;&#xD560; &#xB54C; &#xB9C8;&#xB2E4; ARC&#xB294; &#xC778;&#xC2A4;&#xD134;&#xC2A4;&#xC758; &#xC815;&#xBCF4;&#xB97C; &#xC800;&#xC7A5;&#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C; &#xBA54;&#xBAA8;&#xB9AC;&#xB97C; &#xD560;&#xB2F9;</h5>
+</li>
+<li><h5 id="&#xBA54;&#xBAA8;&#xB9AC;&#xC5D0;&#xB294;-&#xD574;&#xB2F9;-&#xC778;&#xC2A4;&#xD134;&#xC2A4;&#xC640;-&#xC5F0;&#xACB0;&#xB41C;-&#xBAA8;&#xB4E0;-&#xC800;&#xC7A5;-&#xD504;&#xB85C;&#xD37C;&#xD2F0;&#xC758;-&#xAC12;&#xACFC;-&#xD568;&#xAED8;-&#xC778;&#xC2A4;&#xD134;&#xC2A4;&#xC758;-&#xD0C0;&#xC785;&#xC5D0;-&#xB300;&#xD55C;-&#xC815;&#xBCF4;&#xAC00;-&#xC800;&#xC7A5;">&#xBA54;&#xBAA8;&#xB9AC;&#xC5D0;&#xB294; &#xD574;&#xB2F9; &#xC778;&#xC2A4;&#xD134;&#xC2A4;&#xC640; &#xC5F0;&#xACB0;&#xB41C; &#xBAA8;&#xB4E0; &#xC800;&#xC7A5; &#xD504;&#xB85C;&#xD37C;&#xD2F0;&#xC758; &#xAC12;&#xACFC; &#xD568;&#xAED8; &#xC778;&#xC2A4;&#xD134;&#xC2A4;&#xC758; &#xD0C0;&#xC785;&#xC5D0; &#xB300;&#xD55C; &#xC815;&#xBCF4;&#xAC00; &#xC800;&#xC7A5;</h5>
+</li>
+<li><h5 id="&#xC778;&#xC2A4;&#xD134;&#xC2A4;&#xAC00;-&#xD544;&#xC694;-&#xC5C6;&#xC5B4;&#xC9C8;-&#xB54C;-arc-&#xB294;-&#xBA54;&#xBAA8;&#xB9AC;&#xB97C;-&#xB2E4;&#xB978;-&#xBAA9;&#xC801;&#xC73C;&#xB85C;-&#xC0AC;&#xC6A9;&#xB420;-&#xC218;-&#xC788;&#xAC8C;-&#xD558;&#xAE30;-&#xC704;&#xD574;-&#xADF8;-&#xC778;&#xC2A4;&#xD134;&#xC2A4;&#xAC00;-&#xC0AC;&#xC6A9;&#xD558;&#xB294;-&#xBA54;&#xBAA8;&#xB9AC;&#xB97C;-&#xD574;&#xC81C;">&#xC778;&#xC2A4;&#xD134;&#xC2A4;&#xAC00; &#xD544;&#xC694; &#xC5C6;&#xC5B4;&#xC9C8; &#xB54C;, ARC &#xB294; &#xBA54;&#xBAA8;&#xB9AC;&#xB97C; &#xB2E4;&#xB978; &#xBAA9;&#xC801;&#xC73C;&#xB85C; &#xC0AC;&#xC6A9;&#xB420; &#xC218; &#xC788;&#xAC8C; &#xD558;&#xAE30; &#xC704;&#xD574; &#xADF8; &#xC778;&#xC2A4;&#xD134;&#xC2A4;&#xAC00; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xBA54;&#xBAA8;&#xB9AC;&#xB97C; &#xD574;&#xC81C;</h5>
+</li>
+</ul>
+<h4 id="3-arc-vs-gc">3. ARC vs GC</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>ARC</th>
+<th>GC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#xC2DC;&#xC810;</td>
+<td>Compile</td>
+<td>Runtime</td>
+</tr>
+<tr>
+<td>&#xC7A5;&#xC810;</td>
+<td>&#xB7F0;&#xD0C0;&#xC784; &#xC2DC; &#xBA54;&#xBAA8;&#xB9AC; &#xAD00;&#xB9AC;&#xB97C; &#xC704;&#xD55C; &#xC2DC;&#xC2A4;&#xD15C; &#xC790;&#xC6D0;&#xC774; &#xBD88;&#xD544;&#xC694;</td>
+<td>&#xC0C1;&#xD638; &#xCC38;&#xC870; &#xC0C1;&#xD669;&#xB4F1;&#xC758; &#xBCF5;&#xC7A1;&#xD55C; &#xC0C1;&#xD669;&#xC5D0;&#xC11C;&#xB3C4; &#xC778;&#xC2A4;&#xD134;&#xC2A4;&#xB97C; &#xD574;&#xC81C;&#xD560; &#xC218; &#xC788;&#xB294; &#xAC00;&#xB2A5;&#xC131;&#xC774; &#xB354; &#xB192;&#xC73C;&#xBA70; &#xBA54;&#xBAA8;&#xB9AC; &#xD574;&#xC81C;&#xB97C; &#xC2E0;&#xACBD; &#xC548;&#xC368;&#xC918;&#xB3C4; &#xB3FC;&#xC11C; &#xAC1C;&#xBC1C;&#xC774; &#xD3B8;&#xD574;&#xC9C4;&#xB2E4;</td>
+</tr>
+<tr>
+<td>&#xB2E8;&#xC810;</td>
+<td>ARC&#xC758; &#xC791;&#xB3D9; &#xADDC;&#xCE59;&#xC744; &#xBAA8;&#xB974;&#xACE0; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xBA54;&#xBAA8;&#xB9AC;&#xB9AD; &#xBC1C;&#xC0DD; &#xAC00;&#xB2A5;</td>
+<td>&#xD504;&#xB85C;&#xADF8;&#xB7A8; &#xB3D9;&#xC791; &#xC678;&#xC758; &#xBA54;&#xBAA8;&#xB9AC; &#xAC10;&#xC2DC;&#xB97C; &#xC704;&#xD55C; &#xCD94;&#xAC00; &#xC790;&#xC6D0;&#xC774; &#xD544;&#xC694;&#xD558;&#xBA70; &#xC778;&#xC2A4;&#xD134;&#xC2A4;&#xAC00; &#xC5B8;&#xC81C; &#xD560;&#xB2F9;&#xC774; &#xD574;&#xC81C;&#xB418;&#xB294;&#xC9C0; &#xC608;&#xCE21;&#xD558;&#xAE30; &#xC5B4;&#xB835;&#xB2E4;</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://raw.githubusercontent.com/111coding/111coding.github.io/master/books/swift/_res/gc-heap.png" alt="GC"></p>
+<h4 id="4-&#xAC15;&#xD55C;&#xCC38;&#xC870;-&#xC21C;&#xD658;-&#xBB38;&#xC81C;">4. &#xAC15;&#xD55C;&#xCC38;&#xC870; &#xC21C;&#xD658; &#xBB38;&#xC81C;</h4>
+<h5 id="&#xC608;&#xC81C;-&#xD074;&#xB798;&#xC2A4;">&#xC608;&#xC81C; &#xD074;&#xB798;&#xC2A4;</h5>
+<pre><code>class Person {
+    init(name:String) {
+        self.name = name
+    }
+    var name: String
+    var child: Person? = nil
+}
+</code></pre><h5 id="&#xC544;&#xB798;&#xC758;-&#xCF54;&#xB4DC;&#xB97C;-&#xC5B8;&#xB73B;-&#xBCF4;&#xBA74;-&#xB450;-&#xAC1D;&#xCCB4;&#xB294;-&#xBAA8;&#xB450;-&#xBA54;&#xBAA8;&#xB9AC;&#xC5D0;&#xC11C;-&#xD574;&#xC81C;&#xAC00;-&#xB420;&#xAC83;&#xCC98;&#xB7FC;-&#xBCF4;&#xC778;&#xB2E4;">&#xC544;&#xB798;&#xC758; &#xCF54;&#xB4DC;&#xB97C; &#xC5B8;&#xB73B; &#xBCF4;&#xBA74; &#xB450; &#xAC1D;&#xCCB4;&#xB294; &#xBAA8;&#xB450; &#xBA54;&#xBAA8;&#xB9AC;&#xC5D0;&#xC11C; &#xD574;&#xC81C;&#xAC00; &#xB420;&#xAC83;&#xCC98;&#xB7FC; &#xBCF4;&#xC778;&#xB2E4;.</h5>
+<pre><code>var p1: Person? = Person(name: &quot;&#xC0AC;&#xB2F4; &#xBB38;&#xC81C;&#xC778;&quot;)
+var p2: Person? = Person(name: &quot;&#xBB38;&#xC900;&#xC639;&quot;)
+
+p1?.family = p2
+p2?.family = p1
+
+p1 = nil
+p2 = nil
+</code></pre><h5 id="&#xD558;&#xC9C0;&#xB9CC;-&#xCC38;&#xC870;-&#xCE74;&#xC6B4;&#xD2B8;&#xB97C;-&#xACC4;&#xC0B0;&#xD574;&#xBCF4;&#xBA74;-&#xB9C8;&#xC9C0;&#xB9C9;&#xC5D0;-&#xCC38;&#xC870;-&#xCE74;&#xC6B4;&#xD130;&#xAC00;-&#xC544;&#xC9C1;-1-&#xB0A8;&#xC544;&#xC788;&#xC5B4;&#xC11C;-&#xBA54;&#xBAA8;&#xB9AC;&#xC5D0;&#xC11C;-&#xC18C;&#xAC70;&#xB418;&#xC9C0;-&#xC54A;&#xC558;&#xC74C;&#xC744;-&#xC608;&#xCE21;&#xD560;-&#xC218;-&#xC788;&#xB2E4;">&#xD558;&#xC9C0;&#xB9CC; &#xCC38;&#xC870; &#xCE74;&#xC6B4;&#xD2B8;&#xB97C; &#xACC4;&#xC0B0;&#xD574;&#xBCF4;&#xBA74; &#xB9C8;&#xC9C0;&#xB9C9;&#xC5D0; &#xCC38;&#xC870; &#xCE74;&#xC6B4;&#xD130;&#xAC00; &#xC544;&#xC9C1; 1 &#xB0A8;&#xC544;&#xC788;&#xC5B4;&#xC11C; &#xBA54;&#xBAA8;&#xB9AC;&#xC5D0;&#xC11C; &#xC18C;&#xAC70;&#xB418;&#xC9C0; &#xC54A;&#xC558;&#xC74C;&#xC744; &#xC608;&#xCE21;&#xD560; &#xC218; &#xC788;&#xB2E4;</h5>
+<pre><code>// p1 &#xCC38;&#xC870; &#xCE74;&#xC6B4;&#xD2B8; = 1
+var p1: Person? = Person(name: &quot;&#xC0AC;&#xB2F4; &#xBB38;&#xC81C;&#xC778;&quot;)
+// p2 &#xCC38;&#xC870; &#xCE74;&#xC6B4;&#xD2B8; = 1
+var p2: Person? = Person(name: &quot;&#xBB38;&#xC900;&#xC639;&quot;)
+
+// p2 &#xCC38;&#xC870; &#xCE74;&#xC6B4;&#xD2B8; = 2
+p1?.family = p2
+// p2 &#xCC38;&#xC870; &#xCE74;&#xC6B4;&#xD2B8; = 2
+p2?.family = p1
+
+// p1 &#xCC38;&#xC870; &#xCE74;&#xC6B4;&#xD2B8; = 1
+p1 = nil
+// p2 &#xCC38;&#xC870; &#xCE74;&#xC6B4;&#xD2B8; = 1
+p2 = nil
+</code></pre><h5 id="&#xC774;&#xB7EC;&#xD55C;-&#xAC15;&#xD55C;&#xCC38;&#xC870;&#xB97C;-&#xD574;&#xACB0;&#xD558;&#xB824;&#xBA74;-weak&#xC608;&#xC57D;&#xC5B4;&#xB97C;-&#xC0AC;&#xC6A9;&#xD558;&#xC5EC;-&#xD574;&#xB2F9;-&#xD504;&#xB85C;&#xD37C;&#xD2F0;&#xC5D0;-&#xCC38;&#xC870;&#xCE74;&#xC6B4;&#xD2B8;&#xB97C;-&#xC99D;&#xAC00;&#xC2DC;&#xD0A4;&#xC9C0;-&#xC54A;&#xB294;-&#xBC29;&#xBC95;&#xC774;-&#xC788;&#xB2E4;">&#xC774;&#xB7EC;&#xD55C; &#xAC15;&#xD55C;&#xCC38;&#xC870;&#xB97C; &#xD574;&#xACB0;&#xD558;&#xB824;&#xBA74; <span style="color:purple;font-size:large;font-weight:bold">weak</span>&#xC608;&#xC57D;&#xC5B4;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xC5EC; &#xD574;&#xB2F9; &#xD504;&#xB85C;&#xD37C;&#xD2F0;&#xC5D0; &#xCC38;&#xC870;&#xCE74;&#xC6B4;&#xD2B8;&#xB97C; &#xC99D;&#xAC00;&#xC2DC;&#xD0A4;&#xC9C0; &#xC54A;&#xB294; &#xBC29;&#xBC95;&#xC774; &#xC788;&#xB2E4;.</h5>
+<pre><code>class Person {
+    init(name:String) {
+        self.name = name
+    }
+    var name: String
+    weak var child: Person? = nil
+}
+</code></pre><pre><code>// p1 &#xCC38;&#xC870; &#xCE74;&#xC6B4;&#xD2B8; = 1
+var p1: Person? = Person(name: &quot;&#xC0AC;&#xB2F4; &#xBB38;&#xC81C;&#xC778;&quot;)
+// p2 &#xCC38;&#xC870; &#xCE74;&#xC6B4;&#xD2B8; = 1
+var p2: Person? = Person(name: &quot;&#xBB38;&#xC900;&#xC639;&quot;)
+
+// p2 &#xCC38;&#xC870; &#xCE74;&#xC6B4;&#xD2B8; = 1
+p1?.family = p2
+// p2 &#xCC38;&#xC870; &#xCE74;&#xC6B4;&#xD2B8; = 1
+p2?.family = p1
+
+// p1 &#xCC38;&#xC870; &#xCE74;&#xC6B4;&#xD2B8; = 0
+p1 = nil
+// p2 &#xCC38;&#xC870; &#xCE74;&#xC6B4;&#xD2B8; = 0
+p2 = nil
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="1_002.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 기초 문법">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"ARC (Automatic Reference Counting)","level":"1.2.3","depth":2,"next":{"title":"Swift UI","level":"1.3","depth":1,"ref":"","articles":[{"title":"프로젝트 구조","level":"1.3.1","depth":2,"path":"000_INSTALL.md","ref":"000_INSTALL.md","articles":[]},{"title":"UI 기초","level":"1.3.2","depth":2,"path":"001_CREATE.md","ref":"001_CREATE.md","articles":[]},{"title":"UI선언 방식","level":"1.3.3","depth":2,"path":"002_RELEASE.md","ref":"002_RELEASE.md","articles":[]},{"title":"Swift 5.1 Property Wrappers","level":"1.3.4","depth":2,"path":"002_RELEASE.md","ref":"002_RELEASE.md","articles":[]}]},"previous":{"title":"기초 문법","level":"1.2.2","depth":2,"path":"1_002.md","ref":"1_002.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"https://111coding.github.io","RAW_URL":"https://raw.githubusercontent.com/111coding/111coding.github.io/master"},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"1_003.md","mtime":"2022-04-09T18:14:44.801Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-04-09T18:15:19.730Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
