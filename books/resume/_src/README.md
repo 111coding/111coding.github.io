@@ -20,10 +20,6 @@
             <span style="font-size:14px;font-weight:bold;"> +82 10-7979-7191</span>
         </div>
         <div style="display:flex;">
-            <div style="font-size:11px;width:55px;">Blog</div>
-            <span style="font-size:14px;font-weight:bold;"> <a href="https://blog.naver.com/halowd" target="_blank" style="color:#13ab67;font-size:14px;font-weight:bold;">https://blog.naver.com/halowd</a></span>
-        </div>
-        <div style="display:flex;">
             <div style="font-size:11px;width:55px;">github</div>
             <span style="font-size:14px;font-weight:bold;"> <a href="https://github.com/111coding" target="_blank" style="color:#13ab67;font-size:14px;font-weight:bold;">https://github.com/111coding</a></span>
         </div>
@@ -41,8 +37,8 @@
 <hr style="height:1px;margin:0;margin-bottom:20px;padding:0;"/>
 
 - **주식회사 이지아이앤씨**
-  - 부서,직급,직책 / 연봉
-    - 개발 1팀 사원 / 2200만원
+  - 부서/직급/직책
+    - 개발 1팀 사원
   - 근무기간
     - 2020.03 ~ 2020.06 (3개월)
   - 프로젝트
@@ -50,7 +46,7 @@
 
 - **스튜디오마체테**
   - 부서/직급/직책
-    - 개발팀 팀장 / 2500만원
+    - 개발팀 팀장
   - 근무기간
     - 2020.06 ~ 2021.02 (9개월)
   - 프로젝트
@@ -69,7 +65,7 @@
 
 - **주식회사 포커슬리**
   - 부서/직급/직책
-    - 개발팀 사원 / 3500만원
+    - 개발팀 사원
   - 근무기간
     - 2021.06 ~ 2021.10 (5개월)
   - 프로젝트
@@ -83,7 +79,7 @@
 
 - **주식회사 로앤피플**
   - 부서/직급/직책
-    - 개발팀 사원 / 3500만원
+    - 개발팀 사원
   - 근무기간
     - 2021.11 ~ (재직중)
   - 프로젝트
