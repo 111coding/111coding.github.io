@@ -2,7 +2,7 @@
 ***
 
 <div style="display:flex">
-    <img src="{{ book.RAW_URL }}/books/resume/_res/LEE.PNG" width="20%" width="20%">
+    <img src="{{ book.RAW_URL }}/books/resume/_res/LEE.PNG" width="20%" height="100%">
     <div style="margin-left:20px">
         <span style="font-size:24px;font-weight:bold;">이지원</span>
         <span style="font-size:14px;margin-left:4px;"> JIWON LEE</span>
