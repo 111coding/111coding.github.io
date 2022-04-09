@@ -31,6 +31,33 @@
 </div>
 
 <br/>
+<br/>
+
+#### 요약
+<hr style="height:1px;margin:0;margin-bottom:20px;padding:0;"/>
+
+<div class="mermaid">
+gantt
+        dateFormat  YYYY-MM
+
+        section Company
+        주식회사 이지아이앤씨            :done,    des1, 2020-03,2020-06
+        스튜디오마체테                 :done,     des2, 2020-06,2021-02
+        주식회사 포커슬리               :done,         des3, 2021-06,2021-10
+        주식회사 로앤피플               :active,         des4, 2021-11,2022-05
+
+        section .
+        한경대학교 학사행정 개발                  : done, 2020-03,2020-06
+        비주얼 노벨 게임 '핀토' 개발              : done, 2020-06,2020-12
+        '리코더온교실' 개발 및 배포               : crit, done, 2020-12,2021-02
+        몰입형 리더 어플리케이션 개발              : done, 2021-06,2021-10
+        기부플랫폼 '자두' 어플리케이션 개발         : crit, active, 2021-11,2022-05
+        Touch Locker 안드로이드 앱             : crit, done, 2020-01,2020-02
+        무료트로트 안드로이드 앱                  : crit, done, 2020-02,2020-03
+        해시보카 플러터 앱                      : crit, done, 2021-10,2021-11
+        국방부 해커톤 멘토 보조(앱분야)            : crit, done, 2021-10,2021-11
+        Flutter Plugin 'Circle Nav Bar' 배포 : crit, done, 2022-01,2022-02
+</div>
 
 
 #### 경력
@@ -123,6 +150,16 @@
   - 스토어 링크
     - [Google Play](https://play.google.com/store/apps/details?id=net.halowd.engleesh)
     - [Apple AppStore](https://apps.apple.com/kr/app/%ED%95%B4%EC%8B%9C%EB%B3%B4%EC%B9%B4/id1585002105)
+
+
+- **국방부 해커톤 멘토 보조(앱분야)**
+  - 2022.10 (1개월)
+  - 테스트코드 작성 및 코드 리팩토링
+
+- **Flutter Plugin 'Circle Nav Bar'**
+  - 2022.01 (1개월)
+  - Flutter Plugin Publishing
+    - [Pub.dev](https://pub.dev/packages/circle_nav_bar)
 
 
 
