@@ -4,10 +4,25 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Gitbook 설치 · GitBook</title>
+        <title>mermaid 그래프 사용하기 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
+        <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+        <style>
+            .mermaid text[font-size="11"] {
+                font-size: 10px !important;
+            }
+    
+            .mermaid text[font-size="10"] {
+                font-size: 9px !important;
+            }
+    
+            .grid .tick {
+                color: lightgrey !important;
+                opacity: 0.3;
+            }
+        </style>
         
         
         
@@ -56,8 +71,6 @@
     <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
-    
-    <link rel="next" href="001_CREATE.html" />
     
     
 
@@ -114,7 +127,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.2.1" data-path="000_INSTALL.html">
+        <li class="chapter " data-level="1.2.1" data-path="000_INSTALL.html">
             
                 <a href="000_INSTALL.html">
             
@@ -172,7 +185,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="003.html">
+        <li class="chapter active" data-level="1.3.1" data-path="003.html">
             
                 <a href="003.html">
             
@@ -220,7 +233,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Gitbook 설치</a>
+        <a href="." >mermaid 그래프 사용하기</a>
     </h1>
 </div>
 
@@ -235,37 +248,51 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="gitbook-&#xC124;&#xCE58;">Gitbook &#xC124;&#xCE58;</h1>
-<p><strong><em>&#xD574;&#xB2F9; &#xD29C;&#xD1A0;&#xB9AC;&#xC5BC;&#xC740; MacOS &#xAE30;&#xBC18;&#xC5D0;&#xC11C; &#xC791;&#xC131;.</em></strong></p>
-<h4 id="1-nodejs-&#xC124;&#xCE58;">1. NodeJS &#xC124;&#xCE58;</h4>
-<p>Gitbook&#xC740; node.js &#xAE30;&#xBC18;&#xC774;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; <code>node</code>&#xC640; <code>npm</code>&#xC774; &#xC124;&#xCE58;&#xB418;&#xC5B4; &#xC788;&#xC5B4;&#xC57C; &#xD55C;&#xB2E4;. <code>npm</code>&#xC740; <code>node</code>&#xC124;&#xCE58; &#xC2DC; &#xD568;&#xAED8; &#xC124;&#xCE58;&#xB418;&#xB2C8; Homebrew &#xB4F1;&#xC744; &#xD1B5;&#xD574;&#xC11C; <code>node</code>&#xB97C; &#xC124;&#xCE58;&#xD558;&#xC790;.</p>
-<pre><code>$ brew install node
-</code></pre><p>&#xC124;&#xCE58; &#xD6C4; &#xB178;&#xB4DC; &#xBC84;&#xC804;&#xC744; &#xD655;&#xC778;&#xD558;&#xBA74; &#xCD5C;&#xC2E0;&#xBC84;&#xC804;(&#xC791;&#xC131;&#xC77C; &#xAE30;&#xC900; 17.~)&#xC774; &#xC124;&#xCE58; &#xB41C; &#xAC83;&#xC744; &#xD655;&#xC778;&#xD560; &#xC218; &#xC788;&#xB2E4;.</p>
-<pre><code>$ node -v
-</code></pre><p>&#xC774;&#xB54C; &#xC720;&#xC758;&#xD560; &#xC810;&#xC774; &#xC774; &#xAE00;&#xC744; &#xC4F8; &#xB54C; &#xCD5C;&#xC2E0;&#xBC84;&#xC804;&#xC5D0;&#xC11C; <code>gitbook-cli</code> &#xC2E4;&#xD589; &#xC2DC; &#xC81C;&#xB300;&#xB85C; &#xB3CC;&#xC544;&#xAC00;&#xC9C0; &#xC54A;&#xC544;&#xC11C; &#xD55C;&#xCC38; &#xD5E4;&#xB9E4;&#xB2E4;&#xAC00; node version&#xC744; &#xB0AE;&#xCD94;&#xACE0; &#xB098;&#xC11C;&#xC57C; &#xC81C;&#xB300;&#xB85C; &#xC2E4;&#xD589;&#xC774; &#xB418;&#xC5C8;&#xB2E4;.</p>
-<pre><code>// npm &#xCE90;&#xC2DC;&#xC81C;&#xAC70;
-$ sudo npm cache clean -f
-
-// node.js &#xBC84;&#xC804;&#xC744; &#xAD00;&#xB9AC;&#xD558;&#xB294; n &#xC774;&#xB77C;&#xB294; &#xBAA8;&#xB4C8; &#xC124;&#xCE58;
-$ sudo npm install -g n
-
-// node.js 10.14.1 &#xBC84;&#xC804; &#xC124;&#xCE58;
-$ sudo n 10.14.1
-</code></pre><ul>
-<li>n version &#xC801;&#xC6A9; &#xC635;&#xC158;</li>
+                                <h1 id="mermaid-&#xADF8;&#xB798;&#xD504;-&#xC0AC;&#xC6A9;&#xD558;&#xAE30;">mermaid &#xADF8;&#xB798;&#xD504; &#xC0AC;&#xC6A9;&#xD558;&#xAE30;</h1>
+<p>github repository&#xC5D0;&#xC11C;&#xB294; code block&#xC5D0; mermaid&#xB97C; &#xC120;&#xC5B8;&#xD558;&#xC5EC;(```mermaid) &#xC0AC;&#xC6A9;&#xC774; &#xAC00;&#xB2A5;&#xD558;&#xC600;&#xC9C0;&#xB9CC; gitbook&#xC5D0;&#xC11C;&#xB294; mermaid code block&#xC744; &#xC778;&#xC2DD;&#xD558;&#xC9C0; &#xBABB;&#xD55C;&#xC600;&#xB2E4;. &#xADF8;&#xB798;&#xC11C; &#xCC3E;&#xC544;&#xB0B8; &#xBC29;&#xBC95;&#xC774; <strong>mermaid.min.js</strong>&#xB97C; generate&#xB41C; html&#xD30C;&#xC77C;&#xC5D0; &#xC120;&#xC5B8; &#xD6C4; &#xCF54;&#xB4DC;&#xC0AC;&#xC6A9;&#xD558;&#xB294;&#xAC83;&#xC778;&#xB370; &#xC544;&#xB798; &#xC608;&#xC81C;&#xB97C; &#xCC38;&#xC870;&#xD558;&#xC790;</p>
+<h4 id="&#xC608;&#xC81C;">&#xC608;&#xC81C;</h4>
+<ul>
+<li><strong>html&#xD30C;&#xC77C; head</strong>&#xC5D0; &#xC0BD;&#xC785;(style&#xC740; mermaid text, tick &#xC2A4;&#xD0C0;&#xC77C;&#xC744; &#xB0B4;&#xAC00; &#xBCF4;&#xAE30;&#xC5D0; &#xD3B8;&#xD558;&#xAC8C; &#xBC14;&#xAFBC;&#xAC70;&#xB2C8; &#xAC01;&#xC790; &#xC785;&#xB9DB;&#xC5D0; &#xB9DE;&#xAC8C; &#xC0AC;&#xC6A9;&#xD558;&#xC790;!)</li>
 </ul>
-<pre><code>* n stable : &#xC548;&#xC815; &#xBC84;&#xC804;
-* n latest : &#xCD5C;&#xC2E0; &#xBC84;&#xC804;
-* n lts : lts &#xBC84;&#xC804;
-* n x.x.x : &#xD2B9;&#xC815; x.x.x &#xBC84;&#xC804;
-</code></pre><p><img src="https://raw.githubusercontent.com/111coding/111coding.github.io/master/books/gitbook/_res/000_node_version.png" alt="node-version"></p>
-<h4 id="2-gitbook-cli-&#xC124;&#xCE58;">2. gitbook-cli &#xC124;&#xCE58;</h4>
-<p>Node &#xC124;&#xCE58; &#xD6C4; gitbook-cli &#xB97C; &#xAE00;&#xB85C;&#xBC8C;&#xB85C; &#xC124;&#xCE58;&#xD574;&#xC900;&#xB2E4;!</p>
-<pre><code>$ npm install -g gitbook-cli
-</code></pre><p>&#xC774;&#xAE4C;&#xC9C0; &#xD558;&#xACE0; <code>gitbook -V</code>&#xC744; &#xC785;&#xB825;&#xD574; gitbook &#xBC84;&#xC804;&#xC744; &#xD655;&#xC778;&#xD574; &#xBCF4;&#xC790;</p>
-<p><img src="https://raw.githubusercontent.com/111coding/111coding.github.io/master/books/gitbook/_res/000_gitbook_version.png" alt="gitbook-version"></p>
-<p>&#xC704;&#xC640;&#xAC19;&#xC774; CLI version&#xACFC; Gitbook version&#xC774; &#xCD9C;&#xB825;&#xB41C;&#xB2E4;&#xBA74; &#xBAA8;&#xB4E0;&#xC124;&#xCE58;&#xB294; &#xB05D;!</p>
+<pre><code>    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js&quot;&gt;&lt;/script&gt;
+    &lt;style&gt;
+        .mermaid text[font-size=&quot;11&quot;] {
+            font-size: 10px !important;
+        }
 
+        .mermaid text[font-size=&quot;10&quot;] {
+            font-size: 9px !important;
+        }
+
+        .grid .tick {
+            color: lightgrey !important;
+            opacity: 0.3;
+        }
+    &lt;/style&gt;
+</code></pre><ul>
+<li><strong>MD file</strong></li>
+</ul>
+<pre><code>&lt;div class=&quot;mermaid&quot;&gt;
+gantt
+        dateFormat  YYYY-MM
+        axisFormat %y.%m
+        todayMarker stroke-width:2px,stroke:#FF,opacity:0.5
+
+        section Company
+        &#xCC38;&#xC27D;&#xC8E0;?!            :done,    des1, 2021-03,2021-06
+&lt;/div&gt;
+</code></pre><ul>
+<li>&#xC801;&#xC6A9;&#xD654;&#xBA74; </li>
+</ul>
+<div class="mermaid">
+gantt
+        dateFormat  YYYY-MM
+        axisFormat %y.%m
+        todayMarker stroke-width:2px,stroke:#FF,opacity:0.5
+
+        section Company
+        &#xCC38;&#xC27D;&#xC8E0;?!            :done,    des1, 2021-03,2021-06
+</div>
                                 
                                 </section>
                             
@@ -293,10 +320,6 @@ $ sudo n 10.14.1
             
                 
                 
-                <a href="001_CREATE.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Gitbook 생성">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
             
         
     </div>
@@ -304,7 +327,7 @@ $ sudo n 10.14.1
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Gitbook 설치","level":"1.2.1","depth":2,"next":{"title":"Gitbook 생성","level":"1.2.2","depth":2,"path":"001_CREATE.md","ref":"001_CREATE.md","articles":[]},"previous":{"title":"Gitbook","level":"1.2","depth":1,"ref":"","articles":[{"title":"Gitbook 설치","level":"1.2.1","depth":2,"path":"000_INSTALL.md","ref":"000_INSTALL.md","articles":[]},{"title":"Gitbook 생성","level":"1.2.2","depth":2,"path":"001_CREATE.md","ref":"001_CREATE.md","articles":[]},{"title":"Gitbook 배포","level":"1.2.3","depth":2,"path":"002_RELEASE.md","ref":"002_RELEASE.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"https://111coding.github.io","RAW_URL":"https://raw.githubusercontent.com/111coding/111coding.github.io/master"},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"000_INSTALL.md","mtime":"2022-04-09T18:38:07.112Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-04-09T19:00:34.485Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"mermaid 그래프 사용하기","level":"1.3.1","depth":2,"previous":{"title":"Gitbook 심화","level":"1.3","depth":1,"ref":"","articles":[{"title":"mermaid 그래프 사용하기","level":"1.3.1","depth":2,"path":"003.md","ref":"003.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"https://111coding.github.io","RAW_URL":"https://raw.githubusercontent.com/111coding/111coding.github.io/master"},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"003.md","mtime":"2022-04-09T19:00:30.302Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-04-09T19:00:34.485Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
