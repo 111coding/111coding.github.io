@@ -24,6 +24,10 @@
             <span style="font-size:14px;font-weight:bold;"> <a href="https://github.com/111coding" target="_blank" style="color:#13ab67;font-size:14px;font-weight:bold;">https://github.com/111coding</a></span>
         </div>
         <div style="display:flex;">
+            <div style="font-size:11px;width:55px;">gitpage</div>
+            <span style="font-size:14px;font-weight:bold;"> <a href="https://111coding.github.io/" target="_blank" style="color:#13ab67;font-size:14px;font-weight:bold;">https://111coding.github.io/</a></span>
+        </div>
+        <div style="display:flex;">
             <div style="font-size:11px;width:55px;">Email</div>
               <a href="mailto:jwlee1024@gmail.com" target="_blank" rel="nofollow noopener" style="color:#13ab67;font-size:14px;font-weight:bold;">jwlee1024@gmail.com</a>
         </div>
@@ -39,6 +43,8 @@
 <div class="mermaid">
 gantt
         dateFormat  YYYY-MM
+        axisFormat %y.%m
+        todayMarker stroke-width:2px,stroke:#FF,opacity:0.5
 
         section Company
         주식회사 이지아이앤씨            :done,    des1, 2020-03,2020-06
