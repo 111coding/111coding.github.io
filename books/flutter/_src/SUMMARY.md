@@ -13,10 +13,8 @@
     - [MouseOver 감지](https://github.com/111coding/flutter_hover_button/blob/main/svg_button.dart)
     
 - 그림을 그립시다
-    - [반원 그리기](1_000.md)
-    - [원형그래프 그리기](1_001.md)
-    - [WebFlux](1_002.md)
-    - [Insta Like Heart](1_003.md)
+    - [원형 게이지 그리기](1_001.md)
+    - [Insta Like Heart](1_002.md)
 
 - Flutter Web
     - [Flutter로 gitpage만들기](https://github.com/111coding/flutter_gitpage_home)
