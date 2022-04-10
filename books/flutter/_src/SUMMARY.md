@@ -14,7 +14,7 @@
     
 - 그림을 그립시다
     - [원형 게이지 그리기](1_001.md)
-    - [Insta Like Heart](1_002.md)
+    - [Image Cropper](1_002.md)
 
 - Flutter Web
     - [Flutter로 gitpage만들기](https://github.com/111coding/flutter_gitpage_home)
