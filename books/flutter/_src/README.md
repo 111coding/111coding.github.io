@@ -1,6 +1,5 @@
 # Flutter
 
-* [Navigator](README.md)
 - Flutter 개발환경 구축
     - [Flutter 개발환경 구축](000.md)
 - Flutter 개발 일지
