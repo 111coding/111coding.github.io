@@ -27,6 +27,10 @@
             <div style="font-size:11px;width:55px;">Email</div>
               <a href="mailto:jwlee1024@gmail.com" target="_blank" rel="nofollow noopener" style="color:#13ab67;font-size:14px;font-weight:bold;">jwlee1024@gmail.com</a>
         </div>
+        <div style="display:flex;">
+            <div style="font-size:11px;width:55px;">Flutter Gitbook</div>
+            <span style="font-size:14px;font-weight:bold;"> <a href="https://111coding.github.io/books/flutter/" target="_blank" style="color:#13ab67;font-size:14px;font-weight:bold;">https://111coding.github.io/books/flutter/</a></span>
+        </div>
     </div>
 </div>
 
