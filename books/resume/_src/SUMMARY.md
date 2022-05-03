@@ -1,5 +1,0 @@
-# Summary
-
-- [RESUME](README.md)
-
-
