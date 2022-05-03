@@ -36,6 +36,11 @@
   <style>
     @CHARSET "UTF-8";
 
+    @font-face {
+        font-family: 'MapoGoldenPier';
+        src: url(http://111coding.com/fonts/MapoGoldenPier.ttf) format('truetype');
+    }
+
     html {
         height: 100%;
     }
@@ -43,6 +48,7 @@
     body {
         margin: 0;
         padding: 0;
+        font-family: MapoGoldenPier;
         background-color: #222;
         background-size: cover;
         height: 100vh;
@@ -89,7 +95,7 @@
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
   <script>
-    var serviceWorkerVersion = '161269923';
+    var serviceWorkerVersion = '754242713';
     var scriptLoaded = false;
     function loadMainDartJs() {
       if (scriptLoaded) {
