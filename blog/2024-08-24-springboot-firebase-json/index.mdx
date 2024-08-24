@@ -1,0 +1,58 @@
+---
+slug: 2024-08-24-springboot-firebase-json
+title: 'Integrating Firebase Admin SDK in Spring Boot: Safely Managing JSON Files as Environment Variables'
+authors: [jw]
+tags: [springboot]
+---
+
+![Image](./dragonball.jpg)
+
+
+To integrate the Firebase Admin SDK into a Spring Boot project, you typically need a service account key JSON file. The official documentation suggests storing this file on the local filesystem and referencing it directly in your code, as shown below:
+
+<!-- truncate -->
+
+```java
+// [https://firebase.google.com/docs/admin/setup#use-oauth-2-0-refresh-token](https://firebase.google.com/docs/admin/setup?hl=ko#use-oauth-2-0-refresh-token)
+
+FileInputStream serviceAccount = new FileInputStream("path/to/serviceAccountKey.json");
+
+FirebaseOptions options = FirebaseOptions.builder()
+    .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+    .build();
+
+FirebaseApp.initializeApp(options);
+
+```
+
+However, this approach can cause several issues in both local development and CI/CD environments. Specifically, it requires placing the file in a specific path, which can complicate file management across different environments. To address this, I explored a method of managing the Firebase service account key JSON file via environment variables.
+
+My first attempt involved directly using the contents of the JSON file as an environment variable. However, when storing JSON data in GitHub Secrets, I encountered an issue where all double quotes were removed, causing build failures.
+
+The second approach, recommended by GitHub's official documentation (https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions#storing-large-secrets), involves encrypting the JSON file with GPG (GNU Privacy Guard), uploading the encrypted file to the repository, and storing the decryption password in Secrets. While this method secures the file, it introduces the need to update the repository whenever the JSON file changes. Additionally, if different JSON files are used for different environments, managing multiple files can become challenging. Furthermore, despite encryption, the mere presence of a sensitive file in the repository, even in an encrypted form, increases security risks.
+
+The third approach involves encoding the JSON data in BASE64 and storing it in GitHub Secrets. This method allows for easy updates by simply modifying the environment variable, avoids exposing sensitive information in the repository, and mitigates the drawbacks of the previous methods.
+
+Ultimately, I decided to implement the third method, which involves BASE64 encoding the JSON file and applying it to the Spring Boot application.
+
+First, encode the JSON file using BASE64. Then, register the resulting string as a local environment variable with the key `FIREBASE_SERVICE_ACCOUNT_KEY`, and also add it to GitHub Secrets.
+
+```bash
+base64 -i serviceAccountKey.json
+```
+
+Next, modify the Spring Boot application to replace the previous `FileInputStream` usage with code that reads the value from the environment variable, decodes it from BASE64, and creates a `ByteArrayInputStream`:
+
+```java
+String base64EncodedServiceAccountKey = System.getenv("FIREBASE_SERVICE_ACCOUNT_KEY");
+
+InputStream credentialsStream = new ByteArrayInputStream(Base64.getDecoder().decode(base64EncodedServiceAccountKey));
+
+FirebaseOptions options = FirebaseOptions.builder()
+        .setCredentials(GoogleCredentials.fromStream(credentialsStream))
+        .build();
+
+FirebaseApp.initializeApp(options);
+```
+
+This approach significantly improves flexibility in both local development and CI/CD pipelines. It offers an optimal solution by avoiding the exposure of sensitive information in the repository while simplifying the process of applying updates. As a result, this method enables secure and maintainable Firebase integration, ensuring consistent operation across various environments while minimizing security and maintenance complexity.

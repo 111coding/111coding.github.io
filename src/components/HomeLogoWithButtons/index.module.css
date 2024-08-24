@@ -1,0 +1,28 @@
+.outerContainer {
+  display: flex;
+  height: calc(100vh - var(--ifm-navbar-height));
+  justify-content: center;
+  align-items: center;
+}
+
+.innerContrainer {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.space {
+  height: 1rem;
+}
+
+.spaceBottom {
+  height: 7rem;
+  /* height: var(--ifm-navbar-height); */
+}
+
+@media all and (max-width: 768px) {
+  .spaceBottom {
+    height: var(--ifm-navbar-height);
+  }
+}

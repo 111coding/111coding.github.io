@@ -1,0 +1,161 @@
+---
+sidebar_position: 1
+---
+
+# About Me
+
+export function EWidth() {
+  return (
+    <>
+      <div style={{ width: "4px", display: "inline-block" }} />
+    </>
+  );
+}
+
+<style jsx="true">
+  {`
+    .block > div {
+      border-radius: 50%;
+      /* background-color: var(--ifm-navbar-background-color); */
+      background-color: #fff;
+      width: 200px;
+      height: 200px;
+    }
+    .block > div > img {
+      border-radius: 50%;
+    }
+    .block {
+      border-radius: 50%;
+      position: relative;
+      margin: 0 auto 0;
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(0deg, #000, #272727);
+    }
+
+    .block:before,
+    .block:after {
+      border-radius: 50%;
+      content: "";
+      position: absolute;
+      left: -4px;
+      top: -4px;
+      background: linear-gradient(
+        45deg,
+        #fb0094,
+        #0000ff,
+        #00ff00,
+        #ffff00,
+        #ff0000,
+        #fb0094,
+        #0000ff,
+        #00ff00,
+        #ffff00,
+        #ff0000
+      );
+      background-size: 400%;
+      width: calc(100% + 8px);
+      height: calc(100% + 8px);
+      z-index: -1;
+      animation: steam 20s linear infinite;
+    }
+
+    @keyframes steam {
+      0% {
+        background-position: 0 0;
+      }
+
+      50% {
+        background-position: 400% 0;
+      }
+
+      100% {
+        background-position: 0 0;
+      }
+    }
+
+    .block:after {
+      filter: blur(50px);
+    }
+  `}
+</style>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<div className="block">
+  <div>
+    <img src="/img/profile.png" />
+  </div>
+</div>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<center>
+  <h2>I'm Jiwon Lee, a Software Developer 💻</h2>
+</center>
+<br />
+<br />
+<br />
+<center>
+  <h4>Skills</h4>
+</center>
+<center>
+  <img src="https://img.shields.io/badge/-Flutter-1DA1F2?style=flat-square&logo=flutter&link=" />
+  <EWidth />
+  <img src="https://img.shields.io/badge/-SpringBoot-black?style=flat-square&logo=SpringBoot&link=" />
+  <EWidth />
+  <img src="https://img.shields.io/badge/-EVM-black?style=flat-square&logo=Ethereum&link=" />
+  <EWidth />
+  <img src="https://img.shields.io/badge/-React-black?style=flat-square&logo=React&link=" />
+  <EWidth />
+  <img src="https://img.shields.io/badge/-Android-black?style=flat-square&logo=Android&link=" />
+  <EWidth />
+  <img src="https://img.shields.io/badge/-IOS-black?style=flat-square&logo=IOS&logoColor=white&link=" />
+  <div />
+  <img src="https://img.shields.io/badge/-Dart-1DA1F2?style=flat-square&logo=&link=" />
+  <EWidth />
+  <img src="https://img.shields.io/badge/-Java-red?style=flat-square&logo=Java&link=" />
+  <EWidth />
+  <img src="https://img.shields.io/badge/-Solidity-black?style=flat-square&logo=Solidity&link=" />
+  <EWidth />
+  <img src="https://img.shields.io/badge/-JavaScript-black?style=flat-square&logo=JavaScript&link=" />
+  <EWidth />
+  <img src="https://img.shields.io/badge/-TypeScript-F0F0F0?style=flat-square&logo=TypeScript&link=" />
+  <EWidth />
+  <img src="https://img.shields.io/badge/-Kotlin-black?style=flat-square&logo=Kotlin&link=" />
+  <EWidth />
+  <img src="https://img.shields.io/badge/-Swift-F05138?style=flat-square&logo=Swift&logoColor=white&link=" />
+  <div />
+  <img src="https://img.shields.io/badge/-Docker-black?style=flat-square&logo=Docker&link=" />
+  <EWidth />
+  <img src="https://img.shields.io/badge/-Git-black?style=flat-square&logo=Git&link=" />
+</center>
+<br />
+<br />
+<br />
+<br />
+<center>
+  <h4>
+    <span style={{ whiteSpace: "nowrap", display: "inline-block" }}>
+      Contact with me on&nbsp;
+    </span>
+    <a
+      style={{ display: "inline-block" }}
+      href="https://www.linkedin.com/in/jiwon-lee-mark/"
+      target="_blank"
+    >
+      LinkedIn
+    </a>
+  </h4>
+</center>
+
+<br />
+<br />
+<br />
