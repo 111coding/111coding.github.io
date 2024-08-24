@@ -58,6 +58,38 @@ const config: Config = {
   ],
 
   themeConfig: {
+    metadata: [
+      {
+        name: "keywords",
+        content:
+          "programming, blog, developer, software, solidity, spring, springboot, flutter, blockchain",
+      },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    headTags: [
+      // Declare a <link> preconnect tag
+      {
+        tagName: "link",
+        attributes: {
+          rel: "preconnect",
+          href: "https://111coding.github.io",
+        },
+      },
+      // Declare some json-ld structured data
+      {
+        tagName: "script",
+        attributes: {
+          type: "application/ld+json",
+        },
+        innerHTML: JSON.stringify({
+          "@context": "https://111coding.github.io/",
+          "@type": "Organization",
+          name: "111CODING Tech Blog",
+          url: "https://111coding.github.io/",
+          logo: "https://111coding.github.io/img/logo-192.png",
+        }),
+      },
+    ],
     // Replace with your project's social card
     colorMode: {
       defaultMode: "dark",
