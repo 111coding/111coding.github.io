@@ -1,19 +1,20 @@
 import clsx from "clsx";
-import styles from "./styles.module.css";
 import { HTMLAttributeAnchorTarget } from "react";
+import styles from "./styles.module.css";
+import Link from "@docusaurus/Link";
 
 type HomeButtonProps = {
   text: string;
-  href: string;
+  to: string;
   target?: HTMLAttributeAnchorTarget;
 };
 
-function HomeBotton({ text, href, target }: HomeButtonProps) {
+function HomeBotton({ text, to: href, target }: HomeButtonProps) {
   return (
     <div>
-      <a href={href} className={clsx(styles.homeButton)} target={target}>
+      <Link to={href} className={clsx(styles.homeButton)} target={target}>
         {text}
-      </a>
+      </Link>
     </div>
   );
 }
@@ -22,19 +23,19 @@ export default function HomeBottonGroup() {
   return (
     <>
       <div className={clsx(styles.homeButtonContrainer)}>
-        <HomeBotton text="AboutMe" href="/docs/aboutme" />
+        <HomeBotton text="AboutMe" to="/docs/AboutMe" />
         <div className={clsx(styles.buttonSpacer)} />
-        <HomeBotton text="Blog" href="/blog" />
+        <HomeBotton text="Blog" to="/blog" />
         <div className={clsx(styles.buttonSpacer)} />
         <HomeBotton
           text="GitHub"
-          href="https://github.com/111coding"
+          to="https://github.com/111coding"
           target="blank"
         />
         <div className={clsx(styles.buttonSpacer)} />
         <HomeBotton
           text="LinkedIn"
-          href="http://linkedin.com/in/jiwon-lee-mark"
+          to="http://linkedin.com/in/jiwon-lee-mark"
           target="blank"
         />
       </div>
