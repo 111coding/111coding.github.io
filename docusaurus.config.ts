@@ -110,7 +110,7 @@ const config: Config = {
     colorMode: {
       defaultMode: "dark",
     },
-    image: "img/docusaurus-social-card.jpg",
+    image: "img/social-card.jpg",
     navbar: {
       title: "111CODING",
       logo: {
